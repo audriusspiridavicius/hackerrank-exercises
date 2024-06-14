@@ -1,3 +1,13 @@
+def get_input():
+    return input().strip().split()
+
+def get_data():
+    n, m = get_input()
+    numbers_array = get_input()
+    like_numbers = get_input()
+    dislaike_numbers = get_input()
+    return numbers_array, like_numbers, dislaike_numbers
+
 
 def get_happiness(numbers:list,numbers_like:list, numbers_dislike:list):
     
