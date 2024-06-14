@@ -3,7 +3,7 @@ def get_elements():
     elements_count = int(input().strip())
     elements = input().strip().split()
     
-    return elements_count, elements
+    return elements_count, set(elements)
 
 def get_operations():
     operations = []
