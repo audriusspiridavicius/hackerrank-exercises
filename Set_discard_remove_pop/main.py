@@ -14,3 +14,15 @@ def get_operations():
         if operation:
             operations.append({"operation":operation[0], "value":operation[1] if len(operations)==2 else None})
     return operations
+
+def execute_operations(elements:set,operations:list):
+    
+    for operation in operations:
+        if operation["operation"] == "pop":
+            elements.pop()
+        elif operation["operation"] == "remove" and operation["value"] in elements:
+            elements.remove(operation["value"])
+        elif operation["operation"] == "discard":
+            elements.discard(operation["value"])
+    return elements
+    
