@@ -12,14 +12,16 @@ def get_data():
 def get_happiness(numbers:list,numbers_like:list, numbers_dislike:list):
     
     if len(numbers_like) != len(numbers_dislike):
-        return ValueError(" likeable and dislikable arrays are not the same size!")
+        raise ValueError(" likeable and dislikable arrays are not the same size!")
+    if not numbers:
+        raise ValueError("no number")
     
     happiness = 0
     
     size = len(numbers_like)
     
-    numbers_like = set(numbers_like)
-    numbers_dislike = set(numbers_dislike)
+    numbers_like = list(set(numbers_like))
+    numbers_dislike = list(set(numbers_dislike))
     
     for index in range(size):
         
@@ -33,6 +35,7 @@ def get_happiness(numbers:list,numbers_like:list, numbers_dislike:list):
             happiness -= dislikeable_count
     
     return happiness
+
 def main():
     numbers, like_numbers, dislaike_numbers = get_data()
     hapiness_level = get_happiness(numbers, like_numbers, dislaike_numbers)
