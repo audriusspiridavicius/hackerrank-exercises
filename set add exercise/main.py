@@ -13,3 +13,13 @@ def get_unique_stamps(stamps:list):
     
     return unique_stamps
 
+
+def main():
+    stamps = get_data()
+    
+    unique_stamps = get_unique_stamps(stamps)
+    print(len(unique_stamps))
+
+
+if __name__ == "__main__":
+    main()
