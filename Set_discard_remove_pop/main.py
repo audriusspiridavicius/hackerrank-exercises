@@ -12,7 +12,7 @@ def get_operations():
     for _ in range(operations_number):
         operation = input().strip().split()
         if operation:
-            operations.append({"operation":operation[0], "value":operation[1] if len(operations)==2 else None})
+            operations.append({"operation":operation[0], "value":operation[1] if len(operation)==2 else None})
     return operations
 
 def execute_operations(elements:set,operations:list):
@@ -26,3 +26,14 @@ def execute_operations(elements:set,operations:list):
             elements.discard(operation["value"])
     return elements
     
+def main():
+    
+    elements_count, elements = get_elements()
+    operations = get_operations()
+    
+    execute_operations(elements, operations)
+    print(len(elements))
+        
+    
+if __name__ == "__main__":
+    main()
