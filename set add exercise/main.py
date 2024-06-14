@@ -3,7 +3,7 @@ def get_data():
     number_of_stamps = int(input().strip())
     
     data = []
-    for _ in number_of_stamps:
+    for _ in range(number_of_stamps):
         stamp = input().strip()
         data.append(stamp)
     return data
