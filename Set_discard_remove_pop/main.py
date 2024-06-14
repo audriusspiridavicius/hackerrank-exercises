@@ -2,7 +2,7 @@ def get_elements():
     
     elements_count = int(input().strip())
     elements = input().strip().split()
-    
+    elements = [int(element) for element in elements]
     return elements_count, set(elements)
 
 def get_operations():
