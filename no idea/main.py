@@ -33,3 +33,12 @@ def get_happiness(numbers:list,numbers_like:list, numbers_dislike:list):
             happiness -= dislikeable_count
     
     return happiness
+def main():
+    numbers, like_numbers, dislaike_numbers = get_data()
+    hapiness_level = get_happiness(numbers, like_numbers, dislaike_numbers)
+    print(hapiness_level)
+
+
+if __name__ == "__main__":
+    main()
+    pass
