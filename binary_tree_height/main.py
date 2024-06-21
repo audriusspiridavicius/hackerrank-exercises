@@ -45,8 +45,21 @@ class Node:
 
        // this is a node of the tree , which contains info as data, left , right
 '''
-def get_height(root):
-    pass
+def get_height(root:Node):
+    
+    height = 0
+    left = 0
+    right = 0
+    if not root.left and not root.right:
+        return 0
+    
+    if root.left:
+        left = 1 + get_height(root.left)
+        
+    if root.right:
+        right = 1 + get_height(root.right)
+        
+    return max(left,right)    
 
 
 
