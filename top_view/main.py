@@ -35,6 +35,20 @@ class BinarySearchTree:
                 else:
                     break
 
+def get_top_view(node:Node, level:int, values:dict, vd = 0):
+    
+    if node:
+        current = node
+        if level not in values or (level in values and vd < values[level][1]):
+            values[level] = (current.info,vd)
+            
+        if node.left:
+            get_top_view(node.left, level - 1, values, vd+1)
+            
+        if node.right:
+            get_top_view(node.right, level + 1, values, vd+1)
+    
+
 def topView(root):
 if __name__ == "__main__":
     tree = BinarySearchTree()
