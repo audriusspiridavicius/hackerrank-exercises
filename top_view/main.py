@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 
 class Node:
     def __init__(self, info): 
@@ -50,6 +52,19 @@ def get_top_view(node:Node, level:int, values:dict, vd = 0):
     
 
 def topView(root):
+    
+    results = OrderedDict()
+    
+    if root:
+        get_top_view(root, 0, results)
+    top_view_values = [value[0] for key,value in sorted(results.items(), key= lambda val:val[0])]  
+    srtd = map(str,top_view_values)
+
+    print(" ".join(srtd))
+    
+    
+
+
 if __name__ == "__main__":
     tree = BinarySearchTree()
     t = 116
