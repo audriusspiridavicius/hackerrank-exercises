@@ -23,9 +23,9 @@ def bonAppetit(bill, k, b):
     anna_bill = sum(anna_eat) / 2
     
     if anna_bill == b:
-        print("Bon Appetit")
+        return "Bon Appetit"
     else:
-        print(int(abs(b - anna_bill)))
+        return abs(b - anna_bill)
 
 if __name__ == "__main__":
-        bonAppetit([3, 10, 2, 9],1,12)
+        print(bonAppetit([3, 10, 2, 9],1,12))
