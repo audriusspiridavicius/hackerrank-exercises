@@ -18,7 +18,7 @@ def test_prints_no(s, t, k):
     assert result == "No"
     
 @pytest.mark.parametrize("s,t,k",[("abc","123", 6), ("abc","123", 7), ("abc","123", 8),
-                                  ("abc","123", 9), ("abc","abc", 0), ("abc","ab30", 3), ("abc","ab30", 4)])
+                                  ("abc","123", 9), ("abc","abc", 0), ("abc","ab30", 3)])
 def test_prints_yes(s, t, k):
     result = appendAndDelete(s, t, k)
     assert result == "Yes"
