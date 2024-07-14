@@ -9,23 +9,22 @@
 
 def nonDivisibleSubset(k, s):
 
+    remainder_counts = [0] * k
+    
+    for number in s:
+        remainder_counts[number % k] += 1
     max_subset_len = 0
+    
 
-    for _, number in enumerate(s):
-        
-        divisible_subset = set() 
-        divisible_subset.add(number)
-        for next_number in s:
-            divisible = False
-            for ll in divisible_subset:
-                if (ll + next_number) % k == 0:
-                    divisible = True
-                    break
-            if not divisible:
-                divisible_subset.add(next_number)
-            
-        if len(divisible_subset) > max_subset_len:
-            max_subset_len = len(divisible_subset)
+    if remainder_counts[0] > 0:
+        max_subset_len += 1
+    
+    for i in range(1, (k // 2) + 1):
+        if i == k - i: 
+            if remainder_counts[i] > 0:
+                max_subset_len += 1
+        else:
+            max_subset_len += max(remainder_counts[i], remainder_counts[k - i])
     
     return max_subset_len
     
