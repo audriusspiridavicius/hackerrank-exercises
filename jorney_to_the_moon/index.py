@@ -1,4 +1,23 @@
 from collections import defaultdict
+
+
+def get_related_astronauts(current_astronaut:int, astronauts:dict):
+    
+    stack = [current_astronaut]
+    
+    same_country_astronauts = set()
+    while stack:
+        current = stack[0]
+        same_country_astronauts.add(current)
+        related_astronauts = astronauts.get(current)
+        
+        for related in related_astronauts:
+            if related not in same_country_astronauts:
+                stack.append(related)
+        stack.pop(0)
+        
+    return same_country_astronauts
+                
 def form_related_astronauts(astronauts:list) -> defaultdict:
         
         astronauts_dict = defaultdict(set)
