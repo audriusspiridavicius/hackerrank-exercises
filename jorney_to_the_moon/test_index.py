@@ -1,4 +1,4 @@
-from .index import form_related_astronauts,get_astronauts_by_countries, get_related_astronauts
+from .index import form_related_astronauts,get_astronauts_by_countries, get_related_astronauts, journeyToMoon
 from collections import defaultdict
 import pytest
 
@@ -54,3 +54,12 @@ def test_multiple_countries(multi_astronauts_info):
     country_groups = get_astronauts_by_countries(n, group_dict)
     assert len(country_groups) == 2
     
+@pytest.mark.parametrize("n,astronauts,expected_result",[
+    (5,[[0,1],[2,3],[0,4]],6),
+    (4,[[0,2]],5),
+    (2,[[0,1]],0)])   
+def test_journeyToMoon(n, astronauts, expected_result):
+    
+    result = journeyToMoon(n, astronauts)
+    
+    assert result == expected_result
