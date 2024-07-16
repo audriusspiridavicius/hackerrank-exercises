@@ -1,4 +1,5 @@
 from collections import defaultdict
+from functools import reduce
 
 
 def get_related_astronauts(current_astronaut:int, astronauts:dict):
@@ -39,4 +40,22 @@ def get_astronauts_by_countries(n, astronauts):
             visited_astronauts = [True if index in same_country_astronauts else value for index,value in enumerate(visited_astronauts)]
             by_countries.append(same_country_astronauts)
     return by_countries
+
+def get_total_combinations(astronaut_groups,n):
+    
+    rest_countries = n - sum(astronaut_groups)
+    
+    rest_countries_combinations = reduce(lambda x,y: x + y, range(0,rest_countries)) if rest_countries > 0 else 0
+
+    single_person_countries_combinations = 0
+    country_groups_combinations = 0
+    for index,group_size in enumerate(astronaut_groups):
+        single_person_countries_combinations = single_person_countries_combinations + group_size * rest_countries
+        for following_groups in astronaut_groups[index + 1:]:
+            country_groups_combinations = country_groups_combinations + group_size * following_groups
+        
+    total_combinations = country_groups_combinations + single_person_countries_combinations + rest_countries_combinations
+    
+    return total_combinations
+
 
