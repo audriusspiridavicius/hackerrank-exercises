@@ -59,3 +59,18 @@ def get_total_combinations(astronaut_groups,n):
     return total_combinations
 
 
+def journeyToMoon(n, astronauts_list):
+    
+    astronauts:defaultdict = form_related_astronauts(astronauts_list)
+    
+    groups = get_astronauts_by_countries(n, astronauts)
+    country_astronaut_group_sizes = [len(astronauts) for astronauts in groups]
+
+    total_combinations = get_total_combinations(country_astronaut_group_sizes, n)
+
+    return total_combinations
+
+
+if __name__ == "__main__":
+    print(journeyToMoon(5, [[0,1],[2,3],[0,4]]))
+
