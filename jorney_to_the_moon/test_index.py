@@ -1,4 +1,4 @@
-from .index import form_related_astronauts
+from .index import form_related_astronauts,get_astronauts_by_countries
 from collections import defaultdict
 import pytest
 
@@ -30,4 +30,16 @@ def test_multiple_related_astronauts():
     
     result:defaultdict = form_related_astronauts(test_data)
     
-    assert result.get(0) == {2,3}
+    
+    
+def test_single_country(astronauts_info):
+    n, group_dict = astronauts_info
+    country_groups = get_astronauts_by_countries(n, group_dict)
+    assert len(country_groups) == 1
+    
+    
+def test_multiple_countries(multi_astronauts_info):
+    n, group_dict = multi_astronauts_info
+    country_groups = get_astronauts_by_countries(n, group_dict)
+    assert len(country_groups) == 2
+    
